@@ -144,17 +144,39 @@ void RBTree::inorder() {
 
 void RBTree::rotateLeft(Node *node) {
     Node* rightChild = node->right;
-    rightChild->parent = node->parent;
+    Node* parentNode = node->parent;
+    rightChild->parent = parentNode;
+    if (parentNode) {
+        if (parentNode->left == node) {
+            parentNode->left = rightChild;
+        } else {
+            parentNode->right = rightChild;
+        }
+    }
     node->parent = rightChild;
     node->right = rightChild->left;
+    if (rightChild->left) {
+        rightChild->left->parent = node;
+    }
     rightChild->left = node;
 }
 
 void RBTree::rotateRight(Node *node) {
     Node* leftChild = node->left;
-    leftChild->parent = node->parent;
+    Node* parentNode = node->parent;
+    leftChild->parent = parentNode;
+    if (parentNode) {
+        if (parentNode->left == node) {
+            parentNode->left = leftChild;
+        } else {
+            parentNode->right = leftChild;
+        }
+    }
     node->parent = leftChild;
     node->left = leftChild->right;
+    if (leftChild->right) {
+        leftChild->right->parent = node;
+    }
     leftChild->right = node;
 }
 

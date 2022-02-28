@@ -5,20 +5,22 @@
 #ifndef REDBLACKTREE_NODE_H
 #define REDBLACKTREE_NODE_H
 
+template <typename T>
 class Node {
 public:
-    Node(int data);
+    explicit Node<T>(T data);
     int data;
-    Node* left;
-    Node* right;
-    Node* parent;
-    char color;
+    Node<T> *left;
+    Node<T> *right;
+    Node<T> *parent;
+    char color{};
 
-    Node* getUncle();
-    Node* getGrandParent();
-    bool isEqual(Node* node);
+    Node<T> *getUncle();
+    Node<T> *getGrandParent();
     bool isRoot();
     void recolor();
+    void addLeft(T val);
+    void addRight(T val);
 };
 
 

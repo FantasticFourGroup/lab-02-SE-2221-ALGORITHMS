@@ -2,10 +2,10 @@
 // Created by Lenovo on 2/26/2022.
 //
 
-#include <iostream>
 #include "Node.h"
 
-Node::Node(int data) : data(data) {
+template <typename T>
+Node<T>::Node(T data) : data(data) {
     this->data = data;
     this->left = nullptr;
     this->right = nullptr;
@@ -13,7 +13,8 @@ Node::Node(int data) : data(data) {
     this->color = 'R';
 }
 
-Node* Node::getUncle() {
+template <typename T>
+Node<T> *Node<T>::getUncle() {
     Node* parentNode = this->parent;
     if (parentNode) {
         Node* grandparent = parentNode->parent;
@@ -21,7 +22,7 @@ Node* Node::getUncle() {
             if (!grandparent->left || !grandparent->right) {
                 return nullptr;
             }
-            if (grandparent->left->isEqual(parentNode)) {
+            if (grandparent->left == parentNode) {
                 return grandparent->right;
             }
             return grandparent->left;
@@ -30,11 +31,8 @@ Node* Node::getUncle() {
     return nullptr;
 }
 
-bool Node::isEqual(Node *node) {
-    return this == node;
-}
-
-Node *Node::getGrandParent() {
+template <typename T>
+Node<T> *Node<T>::getGrandParent() {
     Node* parentNode = this->parent;
     if (parentNode) {
         Node* grandParent = parentNode->parent;
@@ -43,12 +41,14 @@ Node *Node::getGrandParent() {
     return nullptr;
 }
 
-bool Node::isRoot() {
+template <typename T>
+bool Node<T>::isRoot() {
     return !this->parent;
 }
 
 
-void Node::recolor() {
+template <typename T>
+void Node<T>::recolor() {
     if (this->isRoot()) return;
     Node* parentNode = this->parent;
     Node* uncleNode = this->getUncle();
@@ -61,6 +61,24 @@ void Node::recolor() {
     }
 }
 
+template<typename T>
+void Node<T>::addLeft(T val) {
+    Node* newNode = new Node(val);
+    newNode->parent = this;
+    this->left = newNode;
+    this->recolor();
+}
 
+
+template<typename T>
+void Node<T>::addRight(T val) {
+    Node* newNode = new Node(val);
+    newNode->parent = this;
+    this->right = newNode;
+    this->recolor();
+}
+
+
+template class Node<int>;
 
 

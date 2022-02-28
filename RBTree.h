@@ -1,5 +1,5 @@
 //
-// Created by Lenovo on 2/26/2022.
+// Created by Lenovo on 2/28/2022.
 //
 
 #ifndef REDBLACKTREE_RBTREE_H
@@ -9,21 +9,22 @@
 
 enum cases { ll, lr, rr, rl, none };
 
+template <typename T>
 class RBTree {
 private:
-    Node* insertHelper(Node* root, int data);
-    Node* insertRoot(int data);
-    Node* searchElHelper(Node* root, int data);
-    void inorderHelper(Node* root);
-    cases getCase(Node* node);
+    Node<T> *insertHelper(Node<T> *root, T data);
+    Node<T> *insertRoot(T data);
+    Node<T> *searchElHelper(Node<T> *root, T data);
+    void inorderHelper(Node<T> *root);
+    cases getCase(Node<T> *node);
 public:
-    Node* root;
-    RBTree();
-    void insert(int data);
-    Node* searchElement(int data);
+    Node<T> *root;
+    RBTree<T>();
+    void insert(T data);
+    Node<T> *searchElement(T data);
     void inorder();
-    void rotateLeft(Node* node);
-    void rotateRight(Node* node);
+    void rotateLeft(Node<T> *node);
+    void rotateRight(Node<T> *node);
 };
 
 

@@ -1,6 +1,6 @@
 #include <iostream>
-#include "Node.h"
-#include "RBTree.h"
+#include "src/Node.h"
+#include "src/RBTree.h"
 
 int main() {
     RBTree<int>* tree = new RBTree<int>();
@@ -8,5 +8,6 @@ int main() {
     tree->insert(21);
     tree->insert(35);
     tree->insert(15);
+    tree->insert(7);
     tree->inorder();
 }

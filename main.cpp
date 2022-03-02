@@ -1,13 +1,17 @@
 #include <iostream>
 #include "src/Node.h"
 #include "src/RBTree.h"
+#include <vector>
+#include <string>
+#include "src/Table.h"
+#include "src/Person.h"
 
 int main() {
-    RBTree<int>* tree = new RBTree<int>();
-    tree->insert(3);
-    tree->insert(21);
-    tree->insert(35);
-    tree->insert(15);
-    tree->insert(7);
-    tree->inorder();
+    Table table = Table();
+    table.insert(Person("John", "Smith", "Sailor"));
+    table.insert(Person("Jane", "Doe", "Engineer"));
+    table.insert(Person("John", "Doe", "Engineer"));
+    table.insert(Person("John", "Lennon", "Singer"));
+    Node<std::string> *node = table.searchName("John");
+    table.getNameTree().inorder();
 }

@@ -5,22 +5,31 @@
 #ifndef REDBLACKTREE_NODE_H
 #define REDBLACKTREE_NODE_H
 
-template <typename T>
+#include <vector>
+
+template<typename T>
 class Node {
 public:
     explicit Node<T>(T data);
-    int data;
+
+    T data;
     Node<T> *left;
     Node<T> *right;
     Node<T> *parent;
     char color{};
+    std::vector<int> indexes;
 
     Node<T> *getUncle();
+
     Node<T> *getGrandParent();
+
     bool isRoot();
+
     void recolor();
-    void addLeft(T val);
-    void addRight(T val);
+
+    Node<T> *addLeft(T val, int index);
+
+    Node<T> *addRight(T val, int index);
 };
 
 

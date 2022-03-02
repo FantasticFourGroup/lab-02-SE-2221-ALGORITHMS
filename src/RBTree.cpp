@@ -2,58 +2,66 @@
 // Created by Lenovo on 2/28/2022.
 //
 
-#include <iostream>
 #include "RBTree.h"
 #include "Node.h"
+#include <iostream>
+#include <string>
+#include <utility>
 
-template <typename T>
+template<typename T>
 RBTree<T>::RBTree() {
     this->root = nullptr;
 }
 
-template <typename T>
-Node<T> *RBTree<T>::insertRoot(T data) {
+template<typename T>
+Node<T> *RBTree<T>::insertRoot(T data, int index) {
     this->root = new Node<T>(data);
+    this->root->indexes.push_back(index);
     return this->root;
 }
 
-template <typename T>
-Node<T> *RBTree<T>::insertHelper(Node<T> *rootNode, T data) {
+template<typename T>
+std::pair<Node<T> *, bool> *RBTree<T>::insertHelper(Node<T> *rootNode, T data, int index) {
+    if (data == rootNode->data) {
+        rootNode->indexes.push_back(index);
+        return new std::pair<Node<T> *, bool>(rootNode, true);
+    }
     if (data > rootNode->data) {
         if (!rootNode->right) {
-            rootNode->right = new Node<T>(data);
-            rootNode->right->parent = rootNode;
-            return rootNode->right;
+            Node<T> *addedNode = rootNode->addRight(data, index);
+            return new std::pair<Node<T> *, bool>(addedNode, false);
         }
-        return this->insertHelper(rootNode->right, data);
+        return this->insertHelper(rootNode->right, data, index);
     }
 
     if (!rootNode->left) {
-        rootNode->left = new Node<T>(data);
-        rootNode->left->parent = rootNode;
-        return rootNode->left;
+        Node<T> *addedNode = rootNode->addLeft(data, index);
+        return new std::pair<Node<T> *, bool>(addedNode, false);
     }
 
-    return this->insertHelper(rootNode->left, data);
+    return this->insertHelper(rootNode->left, data, index);
 }
 
-template <typename T>
-void RBTree<T>::insert(T data) {
+template<typename T>
+void RBTree<T>::insert(T data, int index) {
     if (!this->root) {
-        this->insertRoot(data);
+        this->insertRoot(data, index);
         this->root->color = 'B';
         return;
     }
-    Node<T> *insertedNode = this->insertHelper(this->root, data);
+    std::pair<Node<T> *, bool> *pair = this->insertHelper(this->root, data, index);
+    Node<T> *insertedNode = pair->first;
+    bool isSameNode = pair->second;
+    if (isSameNode) {
+        return;
+    }
     Node<T> *parent = insertedNode->parent;
     Node<T> *uncle = insertedNode->getUncle();
     if (uncle && parent) {
         if (uncle->color == 'R' && parent->color == 'R') {
             insertedNode->recolor();
         }
-    }
-
-    else if (parent && parent->color == 'R') {
+    } else if (parent && parent->color == 'R') {
         cases caseType = this->getCase(insertedNode);
         Node<T> *parentNode = insertedNode->parent;
         Node<T> *grandParentNode = insertedNode->getGrandParent();
@@ -122,25 +130,34 @@ Node<T> *RBTree<T>::searchElement(T data) {
     return this->searchElHelper(this->root, data);
 }
 
-template <typename T>
-Node<T> *RBTree<T>::searchElHelper(Node<T> *root, T data) {
-    if (!root) return nullptr;
+template<typename T>
+Node<T> *RBTree<T>::searchElHelper(Node<T> *rootNode, T data) {
+    if (!rootNode) return nullptr;
 
-    if (data == root->data) return root;
+    if (data == rootNode->data) return rootNode;
 
-    if (data > root->data) {
-        return searchElHelper(root->right, data);
+    if (data > rootNode->data) {
+        return searchElHelper(rootNode->right, data);
     }
 
-    return searchElHelper(root->left, data);
+    return searchElHelper(rootNode->left, data);
 }
 
-template <typename T>
-void RBTree<T>::inorderHelper(Node<T> *root) {
-    if (!root) return;
-    this->inorderHelper(root->left);
-    std::cout << "{" << root->data << ", " << root->color << "}" << std::endl;
-    this->inorderHelper(root->right);
+template<typename T>
+void RBTree<T>::inorderHelper(Node<T> *rootNode) {
+    if (!rootNode) return;
+    this->inorderHelper(rootNode->left);
+    std::cout << "{" << rootNode->data << ", ";
+    std::cout << "[";
+    for (int i = 0; i < rootNode->indexes.size(); i++) {
+        std::cout << rootNode->indexes[i];
+        if (i != rootNode->indexes.size() - 1) {
+            std::cout << ", ";
+        }
+    }
+    std::cout << "], ";
+    std::cout << rootNode->color << "}" << std::endl;
+    this->inorderHelper(rootNode->right);
 }
 
 
@@ -216,4 +233,8 @@ cases RBTree<T>::getCase(Node<T> *node) {
     return none;
 }
 
-template class RBTree<int>;
+template
+class RBTree<int>;
+
+template
+class RBTree<std::string>;

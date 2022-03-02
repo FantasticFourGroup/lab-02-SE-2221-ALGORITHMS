@@ -5,6 +5,7 @@
 #include "RBTree.h"
 #include "Node.h"
 #include <iostream>
+#include <string>
 #include <utility>
 
 template<typename T>
@@ -20,7 +21,7 @@ Node<T> *RBTree<T>::insertRoot(T data, int index) {
 }
 
 template<typename T>
-std::pair<Node<int> *, bool> *RBTree<T>::insertHelper(Node<T> *rootNode, T data, int index) {
+std::pair<Node<T> *, bool> *RBTree<T>::insertHelper(Node<T> *rootNode, T data, int index) {
     if (data == rootNode->data) {
         rootNode->indexes.push_back(index);
         return new std::pair<Node<T> *, bool>(rootNode, true);
@@ -232,4 +233,8 @@ cases RBTree<T>::getCase(Node<T> *node) {
     return none;
 }
 
-template class RBTree<int>;
+template
+class RBTree<int>;
+
+template
+class RBTree<std::string>;

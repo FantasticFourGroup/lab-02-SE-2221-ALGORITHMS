@@ -13,7 +13,7 @@ enum cases { ll, lr, rr, rl, none };
 template <typename T>
 class RBTree {
 private:
-    std::pair<Node<int> *, bool> *insertHelper(Node<T> *root, T data, int index);
+    std::pair<Node<T> *, bool> *insertHelper(Node<T> *root, T data, int index);
 
     Node<T> *insertRoot(T data, int index);
 

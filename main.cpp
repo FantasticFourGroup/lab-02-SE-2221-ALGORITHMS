@@ -2,13 +2,14 @@
 #include "src/Node.h"
 #include "src/RBTree.h"
 #include <vector>
+#include <string>
 
 int main() {
-    auto *tree = new RBTree<int>();
-    std::vector<int> arr = {1, 1, 2, 3, 4, 5, 5, 2};
-    for (int i = 0; i < arr.size(); i++) {
-        tree->insert(arr[i], i);
+    std::vector<std::string> names = {"andy", "bob", "charlie", "david", "elizabeth", "andy", "frank", "george"};
+    RBTree<std::string> tree = RBTree<std::string>();
+    for (int i = 0; i < names.size(); i++) {
+        tree.insert(names[i], i);
     }
-
-    tree->inorder();
+    tree.inorder();
+    std::cout << tree.searchElement("andy")->data << std::endl;
 }

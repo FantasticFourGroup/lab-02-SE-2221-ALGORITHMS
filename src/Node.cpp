@@ -4,6 +4,7 @@
 
 #include "Node.h"
 #include <vector>
+#include <string>
 
 template <typename T>
 Node<T>::Node(T data) : data(data) {
@@ -83,6 +84,8 @@ Node<T> *Node<T>::addRight(T val, int index) {
 }
 
 
-template class Node<int>;
+template
+class Node<int>;
 
-
+template
+class Node<std::string>;

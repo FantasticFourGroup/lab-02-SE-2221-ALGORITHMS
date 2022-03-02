@@ -12,7 +12,7 @@ class Node {
 public:
     explicit Node<T>(T data);
 
-    int data;
+    T data;
     Node<T> *left;
     Node<T> *right;
     Node<T> *parent;

@@ -179,6 +179,13 @@ build src/CMakeFiles/src.dir/RBTree.cpp.obj: CXX_COMPILER__src_Debug C$:/Users/L
   OBJECT_DIR = src\CMakeFiles\src.dir
   OBJECT_FILE_DIR = src\CMakeFiles\src.dir
 
+build src/CMakeFiles/src.dir/Table.cpp.obj: CXX_COMPILER__src_Debug C$:/Users/Lenovo/CLionProjects/RedBlackTree/src/Table.cpp || cmake_object_order_depends_target_src
+  DEP_FILE = src\CMakeFiles\src.dir\Table.cpp.obj.d
+  FLAGS = -g -std=gnu++14
+  INCLUDES = -IC:/Users/Lenovo/CLionProjects/RedBlackTree/src
+  OBJECT_DIR = src\CMakeFiles\src.dir
+  OBJECT_FILE_DIR = src\CMakeFiles\src.dir
+
 
 # =============================================================================
 # Link build statements for STATIC_LIBRARY target src
@@ -187,7 +194,7 @@ build src/CMakeFiles/src.dir/RBTree.cpp.obj: CXX_COMPILER__src_Debug C$:/Users/L
 #############################################
 # Link the static library src\libsrc.a
 
-build src/libsrc.a: CXX_STATIC_LIBRARY_LINKER__src_Debug src/CMakeFiles/src.dir/Node.cpp.obj src/CMakeFiles/src.dir/RBTree.cpp.obj
+build src/libsrc.a: CXX_STATIC_LIBRARY_LINKER__src_Debug src/CMakeFiles/src.dir/Node.cpp.obj src/CMakeFiles/src.dir/RBTree.cpp.obj src/CMakeFiles/src.dir/Table.cpp.obj
   LANGUAGE_COMPILE_FLAGS = -g
   OBJECT_DIR = src\CMakeFiles\src.dir
   POST_BUILD = cd .

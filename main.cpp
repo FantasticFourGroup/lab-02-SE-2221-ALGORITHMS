@@ -3,13 +3,15 @@
 #include "src/RBTree.h"
 #include <vector>
 #include <string>
+#include "src/Table.h"
+#include "src/Person.h"
 
 int main() {
-    std::vector<std::string> names = {"andy", "bob", "charlie", "david", "elizabeth", "andy", "frank", "george"};
-    RBTree<std::string> tree = RBTree<std::string>();
-    for (int i = 0; i < names.size(); i++) {
-        tree.insert(names[i], i);
-    }
-    tree.inorder();
-    std::cout << tree.searchElement("andy")->data << std::endl;
+    Table table = Table();
+    table.insert(Person("John", "Smith", "Sailor"));
+    table.insert(Person("Jane", "Doe", "Engineer"));
+    table.insert(Person("John", "Doe", "Engineer"));
+    table.insert(Person("John", "Lennon", "Singer"));
+    Node<std::string> *node = table.searchName("John");
+    table.getNameTree().inorder();
 }

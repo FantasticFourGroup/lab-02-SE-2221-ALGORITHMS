@@ -6,24 +6,36 @@
 #define REDBLACKTREE_RBTREE_H
 
 #include "Node.h"
+#include <utility>
 
 enum cases { ll, lr, rr, rl, none };
 
 template <typename T>
 class RBTree {
 private:
-    Node<T> *insertHelper(Node<T> *root, T data);
-    Node<T> *insertRoot(T data);
-    Node<T> *searchElHelper(Node<T> *root, T data);
-    void inorderHelper(Node<T> *root);
+    std::pair<Node<int> *, bool> *insertHelper(Node<T> *root, T data, int index);
+
+    Node<T> *insertRoot(T data, int index);
+
+    Node<T> *searchElHelper(Node<T> *rootNode, T data);
+
+    void inorderHelper(Node<T> *rootNode);
+
     cases getCase(Node<T> *node);
+
 public:
     Node<T> *root;
+
     RBTree<T>();
-    void insert(T data);
+
+    void insert(T data, int index);
+
     Node<T> *searchElement(T data);
+
     void inorder();
+
     void rotateLeft(Node<T> *node);
+
     void rotateRight(Node<T> *node);
 };
 

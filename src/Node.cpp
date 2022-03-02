@@ -3,6 +3,7 @@
 //
 
 #include "Node.h"
+#include <vector>
 
 template <typename T>
 Node<T>::Node(T data) : data(data) {
@@ -11,6 +12,7 @@ Node<T>::Node(T data) : data(data) {
     this->right = nullptr;
     this->parent = nullptr;
     this->color = 'R';
+    this->indexes = {};
 }
 
 template <typename T>
@@ -62,20 +64,22 @@ void Node<T>::recolor() {
 }
 
 template<typename T>
-void Node<T>::addLeft(T val) {
-    Node* newNode = new Node(val);
+Node<T> *Node<T>::addLeft(T val, int index) {
+    Node *newNode = new Node(val);
     newNode->parent = this;
     this->left = newNode;
-    this->recolor();
+    newNode->indexes.push_back(index);
+    return newNode;
 }
 
 
 template<typename T>
-void Node<T>::addRight(T val) {
-    Node* newNode = new Node(val);
+Node<T> *Node<T>::addRight(T val, int index) {
+    Node *newNode = new Node(val);
     newNode->parent = this;
     this->right = newNode;
-    this->recolor();
+    newNode->indexes.push_back(index);
+    return newNode;
 }
 
 

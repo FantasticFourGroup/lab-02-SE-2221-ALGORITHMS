@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/Lenovo/CLionProjects/RedBlackTree/test/lib
+# Install script for directory: C:/Users/Lenovo/CLionProjects/lab-02-SE-2221-ALGORITHMS/test/lib
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,7 +39,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("C:/Users/Lenovo/CLionProjects/RedBlackTree/cmake-build-debug/test/lib/googlemock/cmake_install.cmake")
+  include("C:/Users/Lenovo/CLionProjects/lab-02-SE-2221-ALGORITHMS/cmake-build-debug/test/lib/googlemock/cmake_install.cmake")
 
 endif()
 

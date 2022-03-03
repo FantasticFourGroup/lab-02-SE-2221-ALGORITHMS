@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/Lenovo/CLionProjects/RedBlackTree/test/lib/googlemock
+# Install script for directory: C:/Users/Lenovo/CLionProjects/lab-02-SE-2221-ALGORITHMS/test/lib/googlemock
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -38,28 +38,28 @@ if(NOT DEFINED CMAKE_OBJDUMP)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "C:/Users/Lenovo/CLionProjects/RedBlackTree/test/lib/googlemock/include/")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "C:/Users/Lenovo/CLionProjects/lab-02-SE-2221-ALGORITHMS/test/lib/googlemock/include/")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "C:/Users/Lenovo/CLionProjects/RedBlackTree/cmake-build-debug/lib/libgmock.a")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "C:/Users/Lenovo/CLionProjects/lab-02-SE-2221-ALGORITHMS/cmake-build-debug/lib/libgmock.a")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "C:/Users/Lenovo/CLionProjects/RedBlackTree/cmake-build-debug/lib/libgmock_main.a")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "C:/Users/Lenovo/CLionProjects/lab-02-SE-2221-ALGORITHMS/cmake-build-debug/lib/libgmock_main.a")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "C:/Users/Lenovo/CLionProjects/RedBlackTree/cmake-build-debug/test/lib/googletest/generated/gmock.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "C:/Users/Lenovo/CLionProjects/lab-02-SE-2221-ALGORITHMS/cmake-build-debug/test/lib/googletest/generated/gmock.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "C:/Users/Lenovo/CLionProjects/RedBlackTree/cmake-build-debug/test/lib/googletest/generated/gmock_main.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "C:/Users/Lenovo/CLionProjects/lab-02-SE-2221-ALGORITHMS/cmake-build-debug/test/lib/googletest/generated/gmock_main.pc")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("C:/Users/Lenovo/CLionProjects/RedBlackTree/cmake-build-debug/test/lib/googletest/cmake_install.cmake")
+  include("C:/Users/Lenovo/CLionProjects/lab-02-SE-2221-ALGORITHMS/cmake-build-debug/test/lib/googletest/cmake_install.cmake")
 
 endif()
 

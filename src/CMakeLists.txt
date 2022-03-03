@@ -8,6 +8,6 @@ set(HEADER_FILES
 set(SOURCE_FILES
         Node.cpp
         RBTree.cpp
-        Table.cpp Table.h Person.h)
+        Table.cpp Table.h Person.h Generator.h Store.cpp Store.h)
 
 add_library(src STATIC ${SOURCE_FILES} ${HEADER_FILES})

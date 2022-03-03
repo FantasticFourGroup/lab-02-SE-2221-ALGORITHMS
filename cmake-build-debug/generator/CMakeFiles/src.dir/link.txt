@@ -1,0 +1,2 @@
+C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\ar.exe qc libsrc.a CMakeFiles/src.dir/Node.cpp.obj CMakeFiles/src.dir/RBTree.cpp.obj CMakeFiles/src.dir/Table.cpp.obj
+C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\ranlib.exe libsrc.a

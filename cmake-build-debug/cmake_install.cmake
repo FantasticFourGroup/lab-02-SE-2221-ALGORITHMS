@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/Lenovo/CLionProjects/RedBlackTree
+# Install script for directory: C:/Users/Lenovo/CLionProjects/lab-02-SE-2221-ALGORITHMS
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,12 +39,12 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/Lenovo/CLionProjects/RedBlackTree/cmake-build-debug/src/cmake_install.cmake")
+  include("C:/Users/Lenovo/CLionProjects/lab-02-SE-2221-ALGORITHMS/cmake-build-debug/src/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/Lenovo/CLionProjects/RedBlackTree/cmake-build-debug/test/cmake_install.cmake")
+  include("C:/Users/Lenovo/CLionProjects/lab-02-SE-2221-ALGORITHMS/cmake-build-debug/test/cmake_install.cmake")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -55,5 +55,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/Lenovo/CLionProjects/RedBlackTree/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/Lenovo/CLionProjects/lab-02-SE-2221-ALGORITHMS/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

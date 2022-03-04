@@ -6,6 +6,7 @@
 #define REDBLACKTREE_PERSON_H
 
 #include <string>
+#include <cereal/archives/binary.hpp>
 
 class Person {
 public:
@@ -21,6 +22,13 @@ public:
         this->name = name;
         this->username = username;
         this->profession = profession;
+    }
+
+    Person() {};
+
+    template <typename Archive>
+    void serialize(Archive &archive) {
+        archive(name, username, profession);
     }
 };
 

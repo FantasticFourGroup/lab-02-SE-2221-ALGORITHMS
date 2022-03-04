@@ -7,6 +7,13 @@ add_executable(RedBlackTree main.cpp)
 
 include_directories(src)
 
+# use configure_file to transfer cmake-build-debug/database.txt to root directory
+configure_file(
+    ${CMAKE_CURRENT_BINARY_DIR}/database.txt
+    ${CMAKE_CURRENT_SOURCE_DIR}/database.txt
+    COPYONLY
+)
+
 add_subdirectory(src)
 add_subdirectory(test)
 

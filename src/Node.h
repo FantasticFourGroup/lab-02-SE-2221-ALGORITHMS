@@ -6,6 +6,7 @@
 #define REDBLACKTREE_NODE_H
 
 #include <vector>
+#include <cereal/archives/binary.hpp>
 
 template<typename T>
 class Node {
@@ -30,6 +31,11 @@ public:
     Node<T> *addLeft(T val, int index);
 
     Node<T> *addRight(T val, int index);
+
+    template <typename Archive>
+    void serialize(Archive &archive) {
+        archive(data, left, right, parent, color, indexes);
+    }
 };
 
 
